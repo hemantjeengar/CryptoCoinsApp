@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cryptoapp.common.Constants
 import com.example.cryptoapp.common.Resource
-import com.example.cryptoapp.domain.use_case.get_coins.GetCoinUseCase
+import com.example.cryptoapp.domain.use_case.get_coin.GetCoinUseCase
 import com.example.cryptoapp.domain.use_case.get_coins.GetCoinsUseCase
 import com.example.cryptoapp.presentation.coin_list.CoinListState
 import dagger.hilt.android.lifecycle.HiltViewModel

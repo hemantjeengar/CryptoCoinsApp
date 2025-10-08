@@ -1,9 +1,7 @@
-package com.example.cryptoapp.domain.use_case.get_coins
+package com.example.cryptoapp.domain.use_case.get_coin
 
 import com.example.cryptoapp.common.Resource
-import com.example.cryptoapp.data.remote.dto.toCoin
 import com.example.cryptoapp.data.remote.dto.toCoinDetail
-import com.example.cryptoapp.domain.model.Coin
 import com.example.cryptoapp.domain.model.CoinDetail
 import com.example.cryptoapp.domain.repository.CoinRepository
 import kotlinx.coroutines.flow.Flow
@@ -20,9 +18,9 @@ class GetCoinUseCase @Inject constructor(
             emit(Resource.Loading())
             val coinDetail = repository.getCoinDetail(coinId).toCoinDetail()
             emit(Resource.Success(coinDetail))
-        } catch (e : HttpException) {
+        } catch (e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
-        } catch (e : IOException) {
+        } catch (e: IOException) {
             emit(Resource.Error("Couldn't reach the server, check your internet connection"))
         }
     }
