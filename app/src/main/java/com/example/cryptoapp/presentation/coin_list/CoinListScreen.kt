@@ -9,11 +9,13 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.cryptoapp.presentation.Screen
 import com.example.cryptoapp.presentation.coin_list.components.CoinListItem
@@ -23,7 +25,7 @@ fun CoinListScreen(
     navController : NavController,
     viewModel : CoinListViewModel = hiltViewModel()
 ) {
-    val state = viewModel.state.value
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     Box(
         modifier = Modifier.fillMaxSize()
